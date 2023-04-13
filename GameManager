@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using InheritanceScripts;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+   
+    private Size SizeItem;
+    public TurkishCoffee TC;
+    public Latte LT;
+    public Customer customer;
+    
+    public void IsUsingCoffeeT() {TC.hasCofffe = true; TC.CalculatePrice();TC.hasCofffe = false;}
+    public void IsUsingMilkT(){TC.hasMilk =true;TC.CalculatePrice();TC.hasMilk = false;}
+    public void IsUsingSugarT(){TC.hasSugar=true;TC.CalculatePrice();TC.hasSugar = false;}
+    public void IsUsingMasticT(){TC.hasMastic=true;TC.CalculatePrice();TC.hasMastic = false;}
+    public void SelectSizeT(){SizeItem = Size.SMALL;TC.CalculatePrice();}
+    
+    public void IsUsingCoffeeL() {LT.hasCofffe = true;LT.CalculatePrice();LT.hasCofffe = false;}
+    public void IsUsingMilkL(){LT.hasMilk =true;LT.CalculatePrice();LT.hasMilk = false;}
+    public void IsUsingSugarL(){LT.hasSugar=true;LT.CalculatePrice();LT.hasSugar = false;}
+    public void SelectSizeL(){SizeItem = Size.SMALL;LT.CalculatePrice();}
+
+
+    public void Buy()
+    {
+        TC.CalculateBudget(TC.price);
+        LT.CalculateBudget(LT.price);
+        
+        // customer.budget -= TC.price;
+        // customer.budget -= LT.price;
+    }
+}
