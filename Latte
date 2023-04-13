@@ -1,0 +1,41 @@
+using System.Diagnostics;
+using System.Linq.Expressions;
+using UnityEngine;
+using Debug = UnityEngine.Debug;
+
+namespace InheritanceScripts
+{
+    public class Latte : Coffee
+    {
+        public Customer customer;
+
+        public override float CalculatePrice()
+        {
+            if (hasCofffe) {price += 15; }
+
+            if (hasMilk) { price += 5; }
+
+            if (hasSugar) { price += 5; }
+
+            if (size == Size.SMALL) { price += 2; }
+
+            if (size == Size.MEDIUM) { price += 5; }
+
+            if (size == Size.BIG) { price += 10; }
+
+            return price;
+        }
+
+        public override float CalculateBudget(float price)
+        {
+            customer.budget -= price;
+            if (customer.budget <= 0)
+            {
+                Debug.Log("No enough budget");
+                customer.budget += price;
+            }
+            Debug.Log($"The remained budget: {customer.budget}");
+            return customer.budget;
+        }
+    }
+}
