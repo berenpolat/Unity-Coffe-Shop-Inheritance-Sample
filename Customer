@@ -1,0 +1,21 @@
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
+using Update = UnityEngine.PlayerLoop.Update;
+
+namespace InheritanceScripts
+{
+
+    public class Customer: MonoBehaviour
+    {
+        public Text budgetText;
+        public float budget = 100f;
+
+        private void Update()
+        {
+            budgetText.text = "Total Budget: " + budget.ToString();
+        }
+        
+    }
+}
