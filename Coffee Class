@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using InheritanceScripts;
+using UnityEngine;
+
+public abstract class Coffee : MonoBehaviour
+{
+    public bool hasCofffe;
+    public bool hasMilk;
+    public bool hasSugar;
+    public Size size;
+    public float price = 0f;
+
+    public abstract float CalculatePrice();
+    public abstract float CalculateBudget(float price);
+
+}
